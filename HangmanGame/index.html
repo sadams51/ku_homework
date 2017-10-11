@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+</head>
+<body>
+
+<h1>Let's Play Hangman</h1>
+
+<p>Press any key to get started!</p>
+
+<div id="guessWord"> </div>
+
+<div id="lettersGuessed"> </div>
+
+<div id="lives"> </div>
+
+<div id="wins"> </div>
+
+
+<script type="text/javascript">
+
+
+	var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k','l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+	var wordsArray = ['mouse', 'rhythm', 'investigate', 'muffin', 'golfer', 'seal', 'peak', 'popcorn', 'carpet', 'pumpkin', 'shrub', 'walkman', 'mirror', 'exterminator', 'chicken', 'sushi'];
+
+	var word = "";
+
+	var underscore = "";
+
+	var showLives = 
+	document.getElementById("mylives"); 
+
+
+
+
+
+//select word to play
+//display on click of any key
+var progress = "";
+
+var status = [];
+
+document.onkeyup = function(event) {
+	if (word === "") {
+		word = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+		var wordDiv = document.getElementById("guessWord");
+		progress = setUnderline(word, wordDiv);
+		status = word.split(""); 
+		console.log(status);
+	}
+	else {
+		var keynum = event.keyCode;
+		var guess = String.fromCharCode(keynum).toLowerCase();
+		for (var i = 0; i < word.length; i++) {
+			if (guess === word.charAt(i)) {
+				progress = setCharAt(progress, i, guess);
+			}
+
+		}
+	 	console.log(progress);
+	}
+
+
+
+}	
+
+
+
+//display blank spaces for each letter in word 
+var setUnderline = function(word, wordDiv) {
+	for (var i=0; i < word.length; i++) {
+	underscore += " _";
+	
+	}
+	console.log(word);
+	console.log(underscore);
+	wordDiv.innerHTML = underscore;
+	return underscore;
+}	
+
+var replaceUnderline = function(word, wordDiv) {
+
+	var keyPress = event.key;
+	for (var i = 0; i < word.length; i++) {			
+		if (keyPress === word.charAt(i)) {
+			keyPress
+		}
+	}		
+}
+
+function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
+}
+
+
+
+
+	//track key strokes 
+
+
+
+	//display correct letters guessed in blank spaces 
+
+
+//loop over characters in answer 
+//creates 'progress' by replacing non-space characters with underscores
+	
+
+//loop over characters in answer, again 
+//reveals corresponding characters in 'progress' if given character 
+//matches character at the current index 
+
+
+	//track & display wins, number of guesses remaining, letters already guessed 
+	//track wrong guesses by adding elements of the man - (head, body, 2 legs, 2 arms - 6 guesses)
+
+	//automatically move on to next word when a word is guessed 
+ 
+
+
+	//var lives = [1, 2, 3, 4, 5, 6, 7]
+
+	//var wins = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+
+</script>
+
+
+
+</body>
+</html>
