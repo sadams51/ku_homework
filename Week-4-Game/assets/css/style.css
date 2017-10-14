@@ -1,0 +1,46 @@
+body {
+	background-color: #eae5e5;
+	width: 960px;
+	margin: 0 auto;
+}
+
+h1 {
+	background-color: #C8C8C8;
+}
+
+.instructions {
+	background-color: #68c6ea;
+	text-align: center;
+
+}
+
+.crystals {
+	width: 150px;
+	height: 150px;
+	float: left;
+	margin: 10px;
+}
+
+#randomNumber {
+	width: 150px;
+	height: 100px;
+}
+
+.stats {
+	float: left;
+	height: 100px;
+	width: 150px;
+	background-color: #68c6ea;
+}
+
+#wins {
+	margin: 5px;
+}
+
+#losses {
+	margin: 5px;
+}
+
+#totalScore {
+	margin: 5px;
+}
