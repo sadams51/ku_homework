@@ -1,0 +1,38 @@
+
+body {
+	font-family: "Lato", sans-serif;
+}
+
+.button {
+	font-family: "Montserrat", sans-serif;
+}
+
+#header {
+	padding: 128px, 16px;
+	color: white;
+
+}
+
+.bgimg {
+	background-image: url('assets/images/starwars1.jpeg');
+	min-height: 100%;
+	background-position: center;
+}
+
+.question {
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+}
+
+#go {
+	margin-bottom: 30px;
+}
+
+#timer {
+	color: white;
+}
+
+#quizResults {
+	position: absolute;
+	margin-top: 30px;
+}

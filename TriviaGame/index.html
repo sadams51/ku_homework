@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+	<meta charset="utf-8">
+	<title>Trivia Game</title>
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+	
+	<header class="w3-container w3-center w3-black" id="pageHeader" >
+		
+		
+		<h1 class="w3-margin w3-jumbo" id="header"  > Star Wars Trivia</h1>
+
+		<div id="display">
+			<span id="timer"></span>
+		</div>
+
+	
+
+		<button class="button w3-button w3-light-grey w3-padding-large w3-large w3-margin-top" id="go">Go!</button>
+
+	</header>	
+
+		
+	<div class="w3-row-padding w3-padding-64 w3-container" id="quiz">
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question1">1. What is the name of Chewbacca's home planet? </p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[1]" id="q1-1" value="1">
+						Tattooine
+					</label>
+
+					<label>
+						<input type="radio" name="quiz  answers[1]" id="q1-2" value="2">
+						Kashyyyke
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz  answers[1]" id="q1-3" value="3">
+						Wookia
+					</label>
+
+				</div>					
+			
+		</div>
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question2">2. What is the name of Chewbacca's species?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[2]" id="4" value="1">
+						Ewok
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[2]" id="5" value="2">
+						Space Bear
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[2]" id="6" value="3">
+						Wookie
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br> 
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question3">3. What planet was destroyed by a test demonstration of the Death Star?</p>
+
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[3]" id="7" value="1">
+						Alderaan
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[3]" id="8" value="2">
+						Mustafar
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[3]" id="9" value="3">
+						Naboo
+					</label>
+
+				</div>			
+			
+		</div>
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question4">4. What weapon does Luke Skywalker use to destroy the Death Star?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[4]" id="10" value="1">
+						Lightsaber
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[4]" id="11" value="2">
+						Proton torpedo
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[4]" id="12" value="3">
+						A-wing
+					</label>
+
+				</div>			
+			
+		</div>
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question5">5. Why was the kiss between Luke and Leia awkward?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[5]" id="13" value="1">
+						Han was jealous
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[5]" id="14" value="2">
+						They are related
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[5]" id="15" value="3">
+						Too much tongue
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br>			
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question6">6. Who owned the Millenium Falcon before Han Solo?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[6]" id="16" value="1">
+						Jaba the Hut
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[6]" id="17" value="2">
+						Chewbacca
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[6]" id="18" value="3">
+						Lando Callrissian
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br>
+
+	
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question7">7. What is Emperor Palpatine's Sith name?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[7]" id="19" value="1">
+						Darth Sidious
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[7]" id="20" value="2">
+						Darth Caedus
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[7]" id="21" value="3">
+						Darth Bane
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question8">8. What is the name of the actor who plays C-3PO?</p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[8]" id="22" value="1">
+						Billy D. Williams
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[8]" id="23" value="2">
+						Anthony Daniels
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[8]" id="24" value="3">
+						James Earl Jones
+					</label>
+
+				</div>
+			
+		</div>	
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question9">9. What is the name of the planet where the Rebels' Secret Base is hidden in "Empire Strikes Back"? </p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[9]" id="25" value="1">
+						Bespin
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[9]" id="26" value="2">
+						Tattoine
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[9]" id="27" value="3">
+						Hoth
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br>
+
+		<div class="w3-padding w3-light-grey">
+			<p class="w3-large question" id="question10">10. Whose home planet was destroyed in question 3? </p>
+				<div class="radio">
+					<label>
+						<input type="radio" name="quiz answers[10]" id="28" value="1">
+						Queen Amidala
+					</label>
+
+					<label>
+						<input type="radio" name="quiz answers[10]" id="29" value="2">
+						Princess Leia
+					</label>					
+
+					<label>
+						<input type="radio" name="quiz answers[10]" id="30" value="3">
+						Grand Moff Tarkin
+					</label>
+
+				</div>
+			
+		</div>
+
+		<br> 
+
+	</div>
+	
+	<div class="w3-row-padding w3-black w3-padding-64 w3-container w3-center">
+		<button class="button w3-button w3-light-grey w3-padding-large w3-large w3-margin-top" id="submitQuiz">Submit Quiz</button>
+	</div>
+
+	<div class="w3-container w3-display-middle w3-dark-gray" id="quizResults">
+		<h1>RESULTS</h1>
+	</div>
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+</body>
+</html>
