@@ -1,0 +1,23 @@
+.container-fluid {
+	margin: 10px 30px;
+	background-color: #817d8a;
+
+
+}
+
+.btn {
+	margin: 2px;
+}
+
+.row {
+	margin-top: 10px;
+}
+
+.col-md {
+	margin-top: 20px;
+}
+
+.inputForm {
+	margin-right: 20px;
+}
+
