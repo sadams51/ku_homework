@@ -1,14 +1,19 @@
 
 var request = require("request");
-var Twitter = require("twitter");
+
 var twitterKeys = require("./keys.js");
-//////can i put all the 'requires' at the top? or do they need to be in 
-//the functions?
+
+var Twitter = require("twitter");
+
+
+
 
 
 var command = process.argv[2];
 
 var name = process.argv[3];
+
+var songName = process.argv.splice(3, process.argv.length - 1).join("+");
 
 
 
@@ -17,7 +22,7 @@ if (command === "my-tweets") {
 };
 
 if (command === "spotify-this-song") {
-	spotify();
+	spotify(songName);
 }
 
 if (command === "movie-this") {
@@ -33,44 +38,50 @@ if (command === "do-what-it-says") {
 function myTweets() {
 	console.log("Last 20 tweets");
 
-	var T = new Twitter("./keys.js");
-	////////????????
-	var params = {screen_name: ''};
-	////////????????
 
-	T.get('statuses/user_timeline', count=20, function(error, tweets, response) {
+
+	var T = new Twitter(twitterKeys);
+
+	var params = {screen_name: 'TheAwkBarista'};
+
+
+	T.get('statuses/user_timeline', params, function(error, tweets, response) {
 		if (!error) {
-			for (i=0; i < 20; i++) {
-				if (tweets[i] === "" && tweets[i] === null) {
-					console.log("no text available");
+			for (var i=0; i< tweets.length; i++) {
+				console.log((i+1) + ": " + " " + tweets[i].text);
+				console.log("Date: " + tweets[i].created_at);
 				}
+		}		
 				else {
-					//////////////???????
-					console.log(tweets[i].text);
-					//////////////???????
+					console.log("error");
 				}
-			}
-		}
 	});
 
 };
 
-var song = "";
 
-function spotify() {
+
+
+var songName = process.argv.splice(3, process.argv.length - 1).join("+");
+
+function spotify(songName) {
 	console.log("Spotify");
-///////////
-	song = process.argv.splice(3, process.argv.length - 1).join("+");
-//////////
-	var S = new Spotify("./spotify.js");
+	var Spotify = require('node-spotify-api');
 
-	console.log("song: " + song);
+
+	var S = new Spotify({
+	id: "be5d5246239f426d830eb5baabe07454",
+	secret: "5bdee7e337b64a3b9292cf883c4a36ec"
+	});
+
+	console.log("song: " + songName);
 
 	S.search({
 		type: 'track', 
-		query: song
+		query: songName
 	}).then(function(response) {
 
+		console.log("Anything");
 		for (var i = 0; i < 20; i++) {
 			console.log(i+1 + ". Artist: " + response.tracks.items[i].artists[0].name);
 			console.log("Song Name: " + response.tracks.items[i].name);
@@ -94,14 +105,13 @@ function movie() {
 
 	var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
 
-/////////QUESTIONS/////////////////
 	request(queryURL, function(error, response, body) {
 		if (!error && response.statusCode === 200) {
 			console.log(body);
 			console.log("Title: " + JSON.parse(body).Title);
 			console.log("Year: " + JSON.parse(body).Year);
 			console.log("Rating: " + JSON.parse(body).imdbRating);
-			//////What is parse?
+		
 			console.log("Country: " + JSON.parse(body).Country);
 			console.log("Language: " + JSON.parse(body).Plot);
 			console.log("Plot: " + JSON.parse(body).Plot);
@@ -125,19 +135,28 @@ function doWhatItSays() {
 				console.log(error);
 			} else {
 				var dataArr = data.split(",");
+				var movieTitle;
 
 				switch(dataArr[0]) {
 					case "my-tweets":
 						myTweets();
+						break;
 
 					case "spotify-this-song":
-						song=dataArr[1];
-						spotify();
+					console.log(dataArr[1].replace(/ /g,"+"));
+						songName=(dataArr[1].replace(/ /g,"+"));
+						
+						spotify(songName);
+						break;
 
 					case "movie-this":
-						movie=dataArr[1].replace(/ /g,"+");
+						movieTitle=dataArr[1].replace(/ /g,"+");
 						movie();
-						console.log(movie);	
+						console.log(movieTitle);
+						break;
+
+					default:
+						console.log("Cannot recognize text") 
 				}
 			}
 		});
