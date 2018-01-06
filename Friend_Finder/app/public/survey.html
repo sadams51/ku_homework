@@ -30,7 +30,7 @@
 
 				<div class="panel-body">
 					<h3> <strong> About You </strong></h2>
-					<form method="POST" role="form">
+					<form method="POST" role="form" id="surveyForm">
 						
 						<div class="form-group">
 							<label for = "name">Name (Required)</label>
@@ -57,7 +57,7 @@
 							</select>
 					</div>	
 
-					<div class="form-group">
+<!-- 					<div class="form-group">
 						<h3>Question 2</h3>
 							<label for="select1">Generally speaking, you rely more on your experience than your imagination.</label>
 							<select class="form-control" id="Q2" required>
@@ -173,7 +173,7 @@
 					      <option value="4">4</option>
 					      <option value="5">5 (Strongly Agree)</option>
 							</select>
-					</div>
+					</div> -->
 
 					<br>
 					<hr>
@@ -210,6 +210,8 @@
 				</div>
 				<div class="modal-body">
 					<p>Your friend match is:</p>
+					<p id="matchName"></p>
+					<img id="matchPhoto" src=""/>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">Save</button>
@@ -242,7 +244,7 @@ $.get("/api/friends", function(data) {
 	}
 });
 	//capture form input
-$("submit").on("click", function(event) {
+$("#surveyForm").on("submit", function(event) {
 	event.preventDefault();
 	validateForm();
 
@@ -253,7 +255,9 @@ function validateForm() {
 		if ($(this).val() === "") {
 			isValid = false;
 		}
+
 	});
+	return isValid;
 }
 
 //create object for user's data (newFriend)
@@ -263,25 +267,24 @@ if (validateForm()) {
 		photo: $("#photo").val(),
 		answers: [
 			$("#Q1").val(),
-			$("#Q2").val(),
-			$("#Q3").val(),
-			$("#Q4").val(),
-			$("#Q5").val(),
-			$("#Q6").val(),
-			$("#Q7").val(),
-			$("#Q8").val(),
-			$("#Q9").val(),
-			$("#Q10").val(),
+			// $("#Q2").val(),
+			// $("#Q3").val(),
+			// $("#Q4").val(),
+			// $("#Q5").val(),
+			// $("#Q6").val(),
+			// $("#Q7").val(),
+			// $("#Q8").val(),
+			// $("#Q9").val(),
+			// $("#Q10").val(),
 			]
 	};
 //post data to friends api
-	$.post("/api/friends", newFriend) 
+	$.post("/api/friends", userInput) 
 	.done(function(data) {
 		console.log(data);
-		alert("We've found a match!");
-		$("#userMatch").text(data.resultName);
+		$("#matchName").text(data.resultName);
 		console.log(data.name);
-		$("#userMatchImage").attr("src", data.resultPic);
+		$("#matchPhoto").attr("src", data.resultPic);
 		console.log(data.photo);
 		$("#myModal").modal({show: true});
 	});

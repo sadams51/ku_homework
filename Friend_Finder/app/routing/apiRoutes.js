@@ -2,9 +2,9 @@
 var express = require("express");
 
 var path = require("path");
-var friendsARray = require("../data/friends.js";)
+var friendsArray = require("../data/friends.js");
 
-var app = express.Router();
+//var app = express.Router();
 
 
 
@@ -22,9 +22,9 @@ function apiRoutes(app) {
 
 
 function computeScore(request, response) {
-	var answers = request.body;
+	var friend = request.body;
 
-	var userScores = answers.scores;
+	var userScores = friend.answers;
 	var resultName = "";
 	var resultPic = "";
 	var totalDifference = 1000;
@@ -35,7 +35,9 @@ function computeScore(request, response) {
 
 		//for each response 
 		for (var j = 0; j < userScores.length; j++) {
-			difference += (Math.abs(userScores[j] - friendsArray[i].scores[j]));
+			console.log(friendsArray[i].answers[j]);
+			//PROBLEM with friendsArray.answers.....
+			difference += (Math.abs(userScores[j] - friendsArray[i].answers[j]));
 		}
 
 		//lowest difference is the match 
@@ -46,7 +48,7 @@ function computeScore(request, response) {
 		}
 	}
 
-	friendsArray.push(answers);
+	friendsArray.push(friend);
 	response.json({
 		resultName: resultName,
 		resultPic: resultPic
